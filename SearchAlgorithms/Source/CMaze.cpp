@@ -52,8 +52,8 @@ CMaze::~CMaze()
 std::vector<CNode> CMaze::GetNeighbors(const CNode& node) const
 {
 	const int nodeIndex{ node.GetIndex() };
-	const int nodeRow{ nodeIndex / m_nRows };
-	const int nodeColumn{ nodeIndex - (nodeRow * m_nRows) };
+	const int nodeRow{ nodeIndex / m_nColumns };
+	const int nodeColumn{ nodeIndex - (nodeRow * m_nColumns) };
 
 	std::vector<CNode> neighbors;
 	for (int offset{ -1 }; offset <= 1; offset += 2)
@@ -61,7 +61,7 @@ std::vector<CNode> CMaze::GetNeighbors(const CNode& node) const
 		const int row{ (nodeRow + offset) };
 		if ((row >= 0) && (row < m_nRows))
 		{
-			const int index{ (row * m_nRows) + nodeColumn };
+			const int index{ (row * m_nColumns) + nodeColumn };
 			if (m_maze[index].GetState() != State::Obstacle)
 			{
 				CNode neighbor{ m_maze[index] };
@@ -73,7 +73,7 @@ std::vector<CNode> CMaze::GetNeighbors(const CNode& node) const
 		const int column{ (nodeColumn + offset) };
 		if ((column >= 0) && (column < m_nColumns))
 		{
-			const int index{ (nodeRow * m_nRows) + column };
+			const int index{ (nodeRow * m_nColumns) + column };
 			if (m_maze[index].GetState() != State::Obstacle)
 			{
 				CNode neighbor{ m_maze[index] };

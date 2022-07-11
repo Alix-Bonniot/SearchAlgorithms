@@ -71,6 +71,12 @@ void CBreadthFirstSearch::CreatePath(const CNode node, const CMaze& maze) const
 	std::reverse(pathIndices.begin(), pathIndices.end());
 
 	std::cout << "Path found!\n";
+
+	for (const int index : pathIndices)
+	{
+		std::cout << index << '\n';
+	}
+
 	int counter{ 0 };
 	const auto mazeSet{ maze.GetMaze() };
 	for (const CNode& node : mazeSet)

@@ -47,6 +47,10 @@
     <OutDir>$(SolutionDir)Build\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(Configuration)-$(Platform)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)-$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(Configuration)-$(Platform)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -70,6 +74,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,6 +91,7 @@
     <ClCompile Include="Source\CSearchAlgorithm.cpp" />
     <ClCompile Include="Source\CNode.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CBreadthFirstSearch.h" />
@@ -91,6 +99,7 @@
     <ClInclude Include="Source\CSearchAlgorithm.h" />
     <ClInclude Include="Source\CNode.h" />
     <ClInclude Include="Source\utility.h" />
+    <ClInclude Include="Source\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
